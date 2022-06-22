@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TypeaheadController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,6 @@ Route::controller(SearchController::class)->group(function () {
 Route::get('/home', [TypeaheadController::class, 'index']);
 Route::get('/autocomplete-search', [TypeaheadController::class, 'autocompleteSearch']);
 
+Route::get('produc/create', [ProductController::class, 'show_product_form']);
+Route::post('produc/create', [ProductController::class, 'store'])->name('product.create');
+Route::get('produc', [ProductController::class, 'index'])->name('product.index');
